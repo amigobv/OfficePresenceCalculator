@@ -19,6 +19,8 @@ $(document).ready(function() {
 		"timeFormat": "G:i",
 	});
 
+
+
 	$("#timelog").submit( function(evt) {
 		evt.preventDefault();
 
@@ -31,13 +33,45 @@ $(document).ready(function() {
   		document.getElementById("result").removeAttribute("hidden");
 	});
 
+	$("#field_arrive").on("change", function () {
+
+		if ($("#field_arrive").val()) {
+			var from = $("#field_arrive").timepicker('getTime', new Date());
+			var to = $("#field_leave").timepicker('getTime', new Date());
+
+			if (to != null) {
+				var pause = $("#field_break").timepicker('getTime', new Date());
+
+				to.setMinutes(to.getMinutes() - pause.getMinutes());
+				if (from > to) {
+					document.getElementById("field_arrive").setCustomValidity("Invalid field.");
+					document.getElementById("calculateTime").disabled = true;
+					console.log("Invalid input!");
+				} else {
+					document.getElementById("field_arrive").setCustomValidity("");
+					document.getElementById("field_leave").setCustomValidity("");
+					document.getElementById("calculateTime").disabled = false;
+				}	
+			}
+		}
+	});
+
 	$("#field_leave").on("change", function () {
-		console.log("Change");
+
 		if ($("#field_leave").val()) {
 			var from = $("#field_arrive").timepicker('getTime', new Date());
 			var to = $("#field_leave").timepicker('getTime', new Date());
+			var pause = $("#field_break").timepicker('getTime', new Date());
+
+			to.setMinutes(to.getMinutes() - pause.getMinutes());
 			if (from > to) {
+				document.getElementById("field_leave").setCustomValidity("Invalid field.");
+				document.getElementById("calculateTime").disabled = true;
 				console.log("Invalid input!");
+			} else {
+				document.getElementById("field_leave").setCustomValidity("");
+				document.getElementById("field_arrive").setCustomValidity("");
+				document.getElementById("calculateTime").disabled = false;
 			}
 		}
 	});
@@ -63,9 +97,16 @@ function milisecondsToString(time) {
 	var mm = Math.round(msec / 1000.0 / 60.0);
 	msec -= Math.floor(mm * 1000 * 60);
 
+	var hour = "";
+	if (hh < 0) {
+		hour += "-";
+		hh *= -1;
+	}
+	hour += (hh < 10) ? "0" : "";
+	hour += hh;
 	//var ss = Math.floor(msec / 1000.0);
 	//msec -= ss * 1000;
-	return (hh < 10 ? "0" : "") + hh + ":" + (mm < 10 ? "0" : "") + mm;
+	return hour + ":" + (mm < 10 ? "0" : "") + mm;
 }
 
 function timeToString(time) {
