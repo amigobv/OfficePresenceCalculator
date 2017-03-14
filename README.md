@@ -1,5 +1,3 @@
 # Office Presence Calculator
 
-This application is written in JavaScript and uses NodeJS framework.
-Using the Electron framework the application can be executed as a 
-standalone application. 
+This application is written in JavaScript and uses the Electron framework, which makes is possible for the application can run as a standalone application.
