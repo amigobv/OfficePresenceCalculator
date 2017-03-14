@@ -1,19 +1,21 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<title>Worklog</title>
+		<title>Office presence calculator</title>
 		<meta charset="utf-8">
   		<meta name="viewport" content="width=device-width, initial-scale=1">
-		<link rel="stylesheet" type="text/css" href="Worklog.css">
 		
 		<!-- import bootstrap -->
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-		<link rel="stylesheet" href="./node_modules/jquery-timepicker/jquery.timepicker.css">
+		<link rel="stylesheet" href="./node_modules/timepicker/jquery.timepicker.min.css">
+		<link rel="stylesheet" href="./node_modules/timepicker/jquery.timepicker.css">
+		<link rel="stylesheet" type="text/css" href="Worklog.css">
 		<!--<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-material-design/0.5.10/css/bootstrap-material-design.min.css">-->
 		<!--<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-material-design/0.5.10/css/ripples.min.css">-->
 		<!-- import JQuery -->
 		<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js" onload="window.$ = window.jQuery = module.exports;"></script>
-		<script type="text/javascript" src="./node_modules/jquery-timepicker/jquery.timepicker.js"></script>
+		<script type="text/javascript" src="./node_modules/timepicker/jquery.timepicker.min.js"></script>
+		<script type="text/javascript" src="./node_modules/timepicker/jquery.timepicker.js"></script>
 		<!-- import bootstrap javascript -->
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 		<!--<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-material-design/0.5.10/js/ripples.min.js"></script>-->
@@ -32,24 +34,34 @@
 				    Arbeitszeiten eingeben:
 				 </div>
 				 -->
-				<div class="col-sm-2 col-md-offset-4">
+				<div class="col-sm-1 col-md-offset-4">
 					<div class="form-group">
-					   	<input maxlength="5" 
-					           id="field_arrive" 
-					           class="timepicker form-control" 
+					   	<input id="field_break" 
+					           class="form-control ui-timepicker-break" 
+					           placeholder="Break*"
+					           type="text"
+					           required/>
+					    <span class="error" aria-live="polite">
+					</div>
+				</div>
+				<div class="col-sm-1">
+					<div class="form-group">
+					   	<input id="field_arrive" 
+					           class="form-control ui-timepicker-input" 
 					           placeholder="Arrive*"
 					           type="text"
 					           required/>
+					    <span class="error" aria-live="polite">
 					</div>
 				</div>
-				<div class="col-sm-2 col-md-offset-0">
+				<div class="col-sm-1 col-md-offset-0">
 					<div class="form-group">
-					  	<input maxlength="5"
-					           id="field_leave"
-					           class="timepicker form-control"
+					  	<input id="field_leave"
+					           class="form-control ui-timepicker-input"
 					           placeholder="Leave*"
 					           type="text"
-					           required/>  
+					           required/>
+					    <span class="error" aria-live="polite">
 					</div>
 				</div>
 				<div class="col-sm-1 col-md-offset-0">
