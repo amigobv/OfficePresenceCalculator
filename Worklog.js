@@ -8,6 +8,7 @@ $(document).ready(function() {
 		"disableTextInput": true,
 		"scrollDefault": "now",
 		"timeFormat": "G:i",
+		"closeOnWindowScroll": true,
 	});
 
 	$(".ui-timepicker-break").timepicker({
@@ -17,6 +18,7 @@ $(document).ready(function() {
 		"disableTextInput": true,
 		"scrollDefault": "0:30",
 		"timeFormat": "G:i",
+		"closeOnWindowScroll": true,
 	});
 
 
