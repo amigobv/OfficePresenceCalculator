@@ -1,0 +1,14 @@
+.form-group {
+  margin: 5px;
+  padding: 5px;
+}
+
+.col-lg-1 {
+  float: left;
+}
+
+.bg-1 {
+	background-color: #1abc9c;
+	color: #ffffff;
+	padding-bottom: 10px;
+}

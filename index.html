@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Worklog</title>
+		<meta charset="utf-8">
+  		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="stylesheet" type="text/css" href="Worklog.css">
+		
+		<!-- import bootstrap -->
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+		<link rel="stylesheet" href="./node_modules/jquery-timepicker/jquery.timepicker.css">
+		<!--<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-material-design/0.5.10/css/bootstrap-material-design.min.css">-->
+		<!--<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-material-design/0.5.10/css/ripples.min.css">-->
+		<!-- import JQuery -->
+		<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js" onload="window.$ = window.jQuery = module.exports;"></script>
+		<script type="text/javascript" src="./node_modules/jquery-timepicker/jquery.timepicker.js"></script>
+		<!-- import bootstrap javascript -->
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+		<!--<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-material-design/0.5.10/js/ripples.min.js"></script>-->
+		<!--<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-material-design/0.5.10/js/material.min.js"></script>-->
+		<script type="text/javascript" src="Worklog.js" async></script>
+	</head>
+	<body>
+		<div class="container-fluid bg-1 text-center">
+			<h3>Office presence</h3>
+			<img src="./logo.png" class="img-circle" alt="Logo">
+		</div>
+		<div class="container-fluid bg-2">
+			<form class="form-horizontal text-center" id="timelog">
+				<!--
+				<div class="form-group col-lg-5">
+				    Arbeitszeiten eingeben:
+				 </div>
+				 -->
+				<div class="col-sm-2 col-md-offset-4">
+					<div class="form-group">
+					   	<input maxlength="5" 
+					           id="field_arrive" 
+					           class="timepicker form-control" 
+					           placeholder="Arrive*"
+					           type="text"
+					           required/>
+					</div>
+				</div>
+				<div class="col-sm-2 col-md-offset-0">
+					<div class="form-group">
+					  	<input maxlength="5"
+					           id="field_leave"
+					           class="timepicker form-control"
+					           placeholder="Leave*"
+					           type="text"
+					           required/>  
+					</div>
+				</div>
+				<div class="col-sm-1 col-md-offset-0">
+					<div class="form-group">
+				    	<button type="submit" 
+				    			class="btn btn-primary"
+				    			id="calculateTime">Calculate</button>
+					</div>
+				</div>
+				</form>
+			</div>
+			
+			<div class="container-fluid bg-3 text-left" id="result" hidden>
+				<div class="row">
+					<div class="col-md-6 col-md-offset-5">
+						<div class="col-sm-4" id="start">Arrived at:</div>
+						<div class="col-sm-4" id="startValue"></div>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-6 col-md-offset-5">
+						<div class="col-sm-4" id="end">Left at:</div>
+						<div class="col-sm-4" id="endValue"></div>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-6 col-md-offset-5">
+						<div class="col-sm-4" id="total">Attended time:</div>
+						<div class="col-sm-4" id="totalValue"></div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<footer class="container-fluid bg-4 text-center">
+			<p></p>
+		</footer>
+	</body>
+</html>
