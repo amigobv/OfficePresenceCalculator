@@ -4,11 +4,12 @@ const BrowserWindow = electron.BrowserWindow;
 var mainWindow = null;
 app.on("ready", function () {
 	mainWindow = new BrowserWindow({
-		height: 700, 
-		width: 1100,
+		height: 800, 
+		width: 1400,
 		maximizable: false,
 		resizable: false,
-		autoHideMenuBar: true
+		autoHideMenuBar: true,
+		icon: __dirname+"./logo.ico"
 	});
 	mainWindow.loadURL("file://"+__dirname+"/index.html");
 });
