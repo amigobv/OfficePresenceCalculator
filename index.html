@@ -7,71 +7,72 @@
 		
 		<!-- import bootstrap -->
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+		<link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
 		<link rel="stylesheet" href="./node_modules/timepicker/jquery.timepicker.min.css">
 		<link rel="stylesheet" href="./node_modules/timepicker/jquery.timepicker.css">
 		<link rel="stylesheet" type="text/css" href="Worklog.css">
-		<!--<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-material-design/0.5.10/css/bootstrap-material-design.min.css">-->
-		<!--<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-material-design/0.5.10/css/ripples.min.css">-->
+
 		<!-- import JQuery -->
 		<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js" onload="window.$ = window.jQuery = module.exports;"></script>
 		<script type="text/javascript" src="./node_modules/timepicker/jquery.timepicker.min.js"></script>
 		<script type="text/javascript" src="./node_modules/timepicker/jquery.timepicker.js"></script>
+
 		<!-- import bootstrap javascript -->
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-		<!--<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-material-design/0.5.10/js/ripples.min.js"></script>-->
-		<!--<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-material-design/0.5.10/js/material.min.js"></script>-->
 		<script type="text/javascript" src="Worklog.js" async></script>
 	</head>
 	<body>
 		<div class="container-fluid bg-1 text-center">
-			<h3>Office presence</h3>
+			<h2><b>Office presence</b></h2>
 			<img src="./logo.png" class="img-circle" alt="Logo">
 		</div>
 		<div class="container-fluid bg-2">
-			<form class="form-horizontal text-center" id="timelog">
-				<!--
-				<div class="form-group col-lg-5">
-				    Arbeitszeiten eingeben:
-				 </div>
-				 -->
-				<div class="col-sm-1 col-md-offset-4">
-					<div class="form-group">
-					   	<input id="field_break" 
-					           class="form-control ui-timepicker-break" 
-					           placeholder="Break*"
-					           type="text"
-					           required/>
-					    <span class="error" aria-live="polite">
+			<div class="row">
+				<div class="col-6 col-md-5"">
+					&nbsp;
+				</div>
+
+				<div class="col-6 col-md-2">
+					<form id="timelog">
+							<div class="form-group">
+								<label for="field_break">Break <span class="required">*</span></label>
+							   	<input id="field_break" 
+							           class="form-control ui-timepicker-break" 
+							           placeholder="Break"
+							           type="text"
+							           required/>
+							    <span class="error" aria-live="polite"/>
+							</div>
+							<div class="form-group">
+								<label for="field_arrive">Time from <span class="required">*</span></label>
+							   	<input id="field_arrive" 
+							           class="form-control ui-timepicker-input" 
+							           placeholder="Begin"
+							           type="text"
+							           required/>
+							    <span class="error" aria-live="polite"/>
+							</div>
+							<div class="form-group">
+								<label for="field_leave">Time to <span class="required">*</span></label>
+							  	<input id="field_leave"
+							           class="form-control ui-timepicker-input"
+							           placeholder="End"
+							           type="text"
+							           required/>
+							    <span class="error" aria-live="polite"/>
+							</div>
+							<div class="form-group" >
+						    	<button type="submit" 
+						    			class="btn btn-primary"
+						    			id="calculateTime">Calculate</button>
+							</div>
+						</form>
+					</div>
+
+					<div class="col-6 col-md-2"">
+						&nbsp;
 					</div>
 				</div>
-				<div class="col-sm-1">
-					<div class="form-group">
-					   	<input id="field_arrive" 
-					           class="form-control ui-timepicker-input" 
-					           placeholder="Arrive*"
-					           type="text"
-					           required/>
-					    <span class="error" aria-live="polite">
-					</div>
-				</div>
-				<div class="col-sm-1 col-md-offset-0">
-					<div class="form-group">
-					  	<input id="field_leave"
-					           class="form-control ui-timepicker-input"
-					           placeholder="Leave*"
-					           type="text"
-					           required/>
-					    <span class="error" aria-live="polite">
-					</div>
-				</div>
-				<div class="col-sm-1 col-md-offset-0">
-					<div class="form-group">
-				    	<button type="submit" 
-				    			class="btn btn-primary"
-				    			id="calculateTime">Calculate</button>
-					</div>
-				</div>
-				</form>
 			</div>
 			
 			<div class="container-fluid bg-3 text-left" id="result" hidden>
