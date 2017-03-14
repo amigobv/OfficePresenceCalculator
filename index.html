@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html ng-app>
 	<head>
 		<title>Office presence calculator</title>
 		<meta charset="utf-8">
@@ -22,6 +22,7 @@
 		<script type="text/javascript" src="Worklog.js" async></script>
 	</head>
 	<body>
+		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.0/angular.js"></script>
 		<div class="container-fluid bg-1 text-center">
 			<h2><b>Office presence</b></h2>
 			<img src="./logo.png" class="img-circle" alt="Logo">
@@ -35,12 +36,12 @@
 				<div class="col-6 col-md-2">
 					<form id="timelog">
 						<div class="form-group">
-							<label for="field_break">Break <span class="required">*</span></label>
+							<label for="field_break">Break</label>
 							<input id="field_break" 
 							       class="form-control ui-timepicker-break" 
 							       placeholder="Break"
 							       type="text"
-							       required/>
+							       ng-model="breakTime"/>
 						</div>
 						<div class="form-group">
 							<label for="field_arrive">Time from <span class="required">*</span></label>
@@ -48,7 +49,8 @@
 							       class="form-control ui-timepicker-input" 
 							       placeholder="Begin"
 							       type="text"
-							       required/>
+							       required
+							       ng-model="beginTime"/>
 						</div>
 						<div class="form-group">
 							<label for="field_leave">Time to <span class="required">*</span></label>
@@ -56,25 +58,26 @@
 							       class="form-control ui-timepicker-input"
 							       placeholder="End"
 							       type="text"
-							       required/>
+							       required
+							       ng-model="finishTime"/>
 							</div>
 						<div class="form-group" >
-						    <button type="submit" 
+						    <button type="submit"
 						    		class="btn btn-primary"
 						    		id="calculateTime">Calculate</button>
 						</div>
 					</form>
 
-					<div id="result" hidden>
+					<div >
 						<div class="row">
-							<div class="col-sm-6" id="start">Start:</div>
-							<div class="col-sm-6" id="startValue"></div>
+							<div class="col-sm-6 animate-show-hide" id="start" ng-hide="!beginTime">Start:</div>
+							<div class="col-sm-6 animate-show-hide" id="startValue" ng-hide="!beginTime">{{beginTime}}</div>
 						</div>
 						<div class="row">
-							<div class="col-sm-6" id="end">Finish:</div>
-							<div class="col-sm-6" id="endValue"></div>
+							<div class="col-sm-6 animate-show-hide" id="end" ng-hide="!finishTime">Finish:</div>
+							<div class="col-sm-6 animate-show-hide" id="endValue" ng-hide="!finishTime">{{finishTime}}</div>
 						</div>
-						<div class="row">
+						<div class="row" id="result" hidden>
 							<div class="col-sm-6" id="total">Duration:</div>
 							<div class="col-sm-6" id="totalValue"></div>
 						</div>

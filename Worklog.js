@@ -29,8 +29,6 @@ $(document).ready(function() {
 		var arrivedAt = $("#field_arrive").timepicker('getTime', new Date());
   		var leftAt = $("#field_leave").timepicker('getTime', new Date());
 
-  		document.getElementById("startValue").innerHTML = timeToString(arrivedAt)
-  		document.getElementById("endValue").innerHTML = timeToString(leftAt);
   		document.getElementById("totalValue").innerHTML = computeDifference(arrivedAt, leftAt);
   		document.getElementById("result").removeAttribute("hidden");
 	});
@@ -44,11 +42,12 @@ $(document).ready(function() {
 			if (to != null) {
 				var pause = $("#field_break").timepicker('getTime', new Date());
 
-				to.setMinutes(to.getMinutes() - pause.getMinutes());
+				if (pause != null)
+					to.setMinutes(to.getMinutes() - pause.getMinutes());
+
 				if (from > to) {
 					document.getElementById("field_arrive").setCustomValidity("Invalid field.");
 					document.getElementById("calculateTime").disabled = true;
-					console.log("Invalid input!");
 				} else {
 					document.getElementById("field_arrive").setCustomValidity("");
 					document.getElementById("field_leave").setCustomValidity("");
@@ -65,11 +64,12 @@ $(document).ready(function() {
 			var to = $("#field_leave").timepicker('getTime', new Date());
 			var pause = $("#field_break").timepicker('getTime', new Date());
 
-			to.setMinutes(to.getMinutes() - pause.getMinutes());
+			if (pause != null)
+				to.setMinutes(to.getMinutes() - pause.getMinutes());
+
 			if (from > to) {
 				document.getElementById("field_leave").setCustomValidity("Invalid field.");
 				document.getElementById("calculateTime").disabled = true;
-				console.log("Invalid input!");
 			} else {
 				document.getElementById("field_leave").setCustomValidity("");
 				document.getElementById("field_arrive").setCustomValidity("");
@@ -83,7 +83,9 @@ $(document).ready(function() {
 function computeDifference(fromDate, toDate) {
 	var dailyBreak = $("#field_break").timepicker('getTime', new Date())
 
-	toDate.setMinutes(toDate.getMinutes() - dailyBreak.getMinutes());
+	if (dailyBreak != null)
+		toDate.setMinutes(toDate.getMinutes() - dailyBreak.getMinutes());
+
 	var difference = toDate.getTime() - fromDate.getTime();
 	if (difference < 0)
 		difference = 0;
