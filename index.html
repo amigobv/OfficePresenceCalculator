@@ -34,65 +34,55 @@
 
 				<div class="col-6 col-md-2">
 					<form id="timelog">
-							<div class="form-group">
-								<label for="field_break">Break <span class="required">*</span></label>
-							   	<input id="field_break" 
-							           class="form-control ui-timepicker-break" 
-							           placeholder="Break"
-							           type="text"
-							           required/>
-							    <span class="error" aria-live="polite"/>
+						<div class="form-group">
+							<label for="field_break">Break <span class="required">*</span></label>
+							<input id="field_break" 
+							       class="form-control ui-timepicker-break" 
+							       placeholder="Break"
+							       type="text"
+							       required/>
+						</div>
+						<div class="form-group">
+							<label for="field_arrive">Time from <span class="required">*</span></label>
+							<input id="field_arrive" 
+							       class="form-control ui-timepicker-input" 
+							       placeholder="Begin"
+							       type="text"
+							       required/>
+						</div>
+						<div class="form-group">
+							<label for="field_leave">Time to <span class="required">*</span></label>
+							<input id="field_leave"
+							       class="form-control ui-timepicker-input"
+							       placeholder="End"
+							       type="text"
+							       required/>
 							</div>
-							<div class="form-group">
-								<label for="field_arrive">Time from <span class="required">*</span></label>
-							   	<input id="field_arrive" 
-							           class="form-control ui-timepicker-input" 
-							           placeholder="Begin"
-							           type="text"
-							           required/>
-							    <span class="error" aria-live="polite"/>
-							</div>
-							<div class="form-group">
-								<label for="field_leave">Time to <span class="required">*</span></label>
-							  	<input id="field_leave"
-							           class="form-control ui-timepicker-input"
-							           placeholder="End"
-							           type="text"
-							           required/>
-							    <span class="error" aria-live="polite"/>
-							</div>
-							<div class="form-group" >
-						    	<button type="submit" 
-						    			class="btn btn-primary"
-						    			id="calculateTime">Calculate</button>
-							</div>
-						</form>
-					</div>
+						<div class="form-group" >
+						    <button type="submit" 
+						    		class="btn btn-primary"
+						    		id="calculateTime">Calculate</button>
+						</div>
+					</form>
 
-					<div class="col-6 col-md-2"">
-						&nbsp;
+					<div id="result" hidden>
+						<div class="row">
+							<div class="col-sm-6" id="start">Arrived at:</div>
+							<div class="col-sm-6" id="startValue"></div>
+						</div>
+						<div class="row">
+							<div class="col-sm-6" id="end">Left at:</div>
+							<div class="col-sm-6" id="endValue"></div>
+						</div>
+						<div class="row">
+							<div class="col-sm-6" id="total">Attended time:</div>
+							<div class="col-sm-6" id="totalValue"></div>
+						</div>
 					</div>
 				</div>
-			</div>
-			
-			<div class="container-fluid bg-3 text-left" id="result" hidden>
-				<div class="row">
-					<div class="col-md-6 col-md-offset-5">
-						<div class="col-sm-4" id="start">Arrived at:</div>
-						<div class="col-sm-4" id="startValue"></div>
-					</div>
-				</div>
-				<div class="row">
-					<div class="col-md-6 col-md-offset-5">
-						<div class="col-sm-4" id="end">Left at:</div>
-						<div class="col-sm-4" id="endValue"></div>
-					</div>
-				</div>
-				<div class="row">
-					<div class="col-md-6 col-md-offset-5">
-						<div class="col-sm-4" id="total">Attended time:</div>
-						<div class="col-sm-4" id="totalValue"></div>
-					</div>
+
+				<div class="col-6 col-md-2"">
+					&nbsp;
 				</div>
 			</div>
 		</div>

@@ -51,7 +51,7 @@ $(document).ready(function() {
 					document.getElementById("field_arrive").setCustomValidity("");
 					document.getElementById("field_leave").setCustomValidity("");
 					document.getElementById("calculateTime").disabled = false;
-				}	
+				}
 			}
 		}
 	});
@@ -86,7 +86,9 @@ function computeDifference(fromDate, toDate) {
 	if (difference < 0)
 		difference = 0;
 
-	return milisecondsToString(difference);
+	var result = milisecondsToString(difference);
+	result += " (" + milisecondsToDouble(difference).toFixed(2) + ")";
+	return result;
 }
 
 function milisecondsToString(time) {
@@ -107,6 +109,20 @@ function milisecondsToString(time) {
 	//var ss = Math.floor(msec / 1000.0);
 	//msec -= ss * 1000;
 	return hour + ":" + (mm < 10 ? "0" : "") + mm;
+}
+
+function milisecondsToDouble(time) {
+	var msec = time;
+	var hh = Math.floor(msec / 1000.0 / 60.0 / 60.0);
+	msec -= Math.floor(hh * 1000 * 60 * 60);
+
+	var mm = Math.round(msec / 1000.0 / 60.0);
+	msec -= Math.floor(mm * 1000 * 60);
+
+	var result = hh + mm * 100 / 60.0 / 100.0;
+	//var ss = Math.floor(msec / 1000.0);
+	//msec -= ss * 1000;
+	return result;
 }
 
 function timeToString(time) {
